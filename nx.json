@@ -1,4 +1,9 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "nxCloudAccessToken": "NWEyMjA0MDctNTBhYy00ZGQyLWFhN2MtODhmMTdkZTgyNDExfHJlYWQtd3JpdGU=",
@@ -35,6 +40,13 @@
       "linter": "eslint",
       "unitTestRunner": "vitest",
       "e2eTestRunner": "cypress"
+    }
+  },
+  "targetDefaults": {
+    "@nx/rollup:rollup": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
     }
   }
 }

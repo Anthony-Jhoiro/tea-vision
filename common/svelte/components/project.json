@@ -1,0 +1,22 @@
+{
+  "name": "common-svelte-components",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "common/svelte/components/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/common/svelte/components",
+        "main": "common/svelte/components/src/index.ts",
+        "tsConfig": "common/svelte/components/tsconfig.lib.json",
+        "assets": [],
+        "project": "common/svelte/components/package.json",
+        "compiler": "swc",
+        "format": ["cjs", "esm"]
+      }
+    }
+  }
+}

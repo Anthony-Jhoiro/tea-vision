@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "declaration": true,
+    "types": ["node"]
+  },
+  "include": [
+    "tailwind-config/src/**/*.ts"
+  ],
+  "exclude": [
+    "tailwind-config/src/**/*.spec.ts",
+    "tailwind-config/src/**/*.test.ts"
+  ]
+}
