@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "common-svelte": ["common/svelte/components/src/index.ts"],
+      "domains": ["common/domains/src/index.ts"],
       "tailwind-config": ["common/config/src/index.ts"]
     }
   },

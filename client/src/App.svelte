@@ -1,23 +1,18 @@
 <script lang="ts">
-    import {ButtonCard} from "common-svelte";
-
-    let count: number = 0;
-    const increment = () => {
-        count += 1;
-    };
+  import { Header, Footer, Loader } from 'common-svelte';
 </script>
 
+<div
+  class="macchiato bg-base flex min-h-screen w-full flex-col justify-between"
+>
+  <Header>
+    <a href="/">
+      <h1>My Tea Collection</h1>
+    </a>
+  </Header>
 
-<div class="macchiato bg-base">
-
-    <h1 class="text-3xl font-bold underline text-blue-500">Hello World</h1>
-
-    <button on:click={increment}>
-        count is {count}
-    </button>
-
-    <ButtonCard>
-        Hello World
-    </ButtonCard>
-
+  <div class="flex-grow">
+    <Loader max="100" value="100" class="text-6xl">100%</Loader>
+  </div>
+  <Footer />
 </div>
