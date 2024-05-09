@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { SvelteComponent } from 'svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -8,20 +9,31 @@
       video: true,
     });
   }
+
+  export let leftButton: ConstructorOfATypedSvelteComponent;
+  export let leftButtonProps: any;
+
+  export let rightButton: ConstructorOfATypedSvelteComponent;
+  export let rightButtonProps: any;
 </script>
 
 <div class="flex">
   <div class="flex-grow p-5">
-    <button
-      class="bg-peach hover:bg-yellow w-full rounded-lg px-8 py-3 transition-colors"
-      >Start clock</button
+    <svelte:component
+      this={leftButton}
+      {...leftButtonProps}
+      class="bg-peach hover:bg-yellow block w-full rounded-lg px-8 py-3 text-center transition-colors"
     >
+      Start clock
+    </svelte:component>
   </div>
   <div class="flex-grow p-5">
-    <button
-      class="bg-teal hover:bg-sky w-full rounded-lg px-8 py-3 transition-colors"
-      on:click={sayHello}
-      >Register new tea
-    </button>
+    <svelte:component
+      this={rightButton}
+      {...rightButtonProps}
+      class="bg-teal hover:bg-sky block w-full rounded-lg px-8 py-3 text-center transition-colors"
+    >
+      Register new tea
+    </svelte:component>
   </div>
 </div>

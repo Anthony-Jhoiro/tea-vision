@@ -1,18 +1,31 @@
 <script lang="ts">
-  import { Header, Footer, Loader } from 'common-svelte';
+  import { Header, Footer } from 'common-svelte';
+  import { Router, Link, Route } from 'svelte-routing';
+  import Home from './routes/Home.svelte';
+  import New from './routes/New.svelte';
+
+  export let url = '';
 </script>
 
-<div
-  class="macchiato bg-base flex min-h-screen w-full flex-col justify-between"
->
-  <Header>
-    <a href="/">
-      <h1>My Tea Collection</h1>
-    </a>
-  </Header>
+<Router {url}>
+  <div
+    class="macchiato bg-base flex min-h-screen w-full flex-col justify-between"
+  >
+    <Header>
+      <Link to="/">
+        <h1>My Tea Collection</h1>
+      </Link>
+    </Header>
 
-  <div class="flex-grow">
-    <Loader max="100" value="100" class="text-6xl">100%</Loader>
+    <div class="flex-grow">
+      <Route path="/new" component={New} />
+      <Route path="/"><Home /></Route>
+    </div>
+    <Footer
+      leftButton={Link}
+      rightButton={Link}
+      leftButtonProps={{ to: '/' }}
+      rightButtonProps={{ to: '/new' }}
+    />
   </div>
-  <Footer />
-</div>
+</Router>
