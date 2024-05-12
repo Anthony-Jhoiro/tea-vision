@@ -1,7 +1,12 @@
 {
-  "name": "common/svelte/components",
+  "name": "common-svelte-components",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "bits-ui": "^0.21.7",
+    "formsnap": "^1.0.0",
+    "sveltekit-superforms": "^2.13.1",
+    "zod": "^3.23.8"
+  },
   "main": "./index.cjs",
   "module": "./index.js",
   "private": true

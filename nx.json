@@ -32,6 +32,17 @@
         "componentTestingTargetName": "component-test",
         "ciTargetName": "e2e-ci"
       }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      },
+      "exclude": [
+        "server-e2e/**/*",
+        "server-e2e/**/*",
+        "server-fastify-e2e/**/*"
+      ]
     }
   ],
   "generators": {
@@ -44,6 +55,16 @@
   },
   "targetDefaults": {
     "@nx/rollup:rollup": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    },
+    "@nx/vite:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    },
+    "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["default", "^default"]

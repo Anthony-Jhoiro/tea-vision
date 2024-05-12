@@ -15,9 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "client-content-forms": ["client-content/forms/src/index.ts"],
       "common-svelte": ["common/svelte/components/src/index.ts"],
+      "common-svelte/*": ["common/svelte/components/src/*"],
       "domains": ["common/domains/src/index.ts"],
-      "tailwind-config": ["common/config/src/index.ts"]
+      "server/*": ["server/src/*"],
+      "tailwind-config": ["common/config/src/index.ts"],
+      "tea-storage-json": ["server-adapters/tea-storage/json/src/index.ts"],
+      "tea-storage-port": ["server-adapters/tea-storage/port/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

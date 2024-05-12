@@ -1,7 +1,18 @@
 <script>
   import { Loader } from 'common-svelte';
+  import { useListTeas } from '../api';
+
+  const getTeasQuery = useListTeas();
 </script>
 
-<p>Home</p>
+{#if $getTeasQuery.isLoading}
+  <div class="grid w-full place-items-center">
+    <Loader max="100" value="70" class="text-8xl" />
+  </div>
+{/if}
 
-<Loader max="100" value="70" class="text-8xl" />
+{#if $getTeasQuery.data}
+  <pre>
+    {JSON.stringify($getTeasQuery.data, null, 2)}
+  </pre>
+{/if}

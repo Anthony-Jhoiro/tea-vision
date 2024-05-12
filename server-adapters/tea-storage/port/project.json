@@ -1,0 +1,9 @@
+{
+  "name": "tea-storage-port",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "server-adapters/tea-storage/port/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project server-adapters-tea-storage-port --web",
+  "targets": {}
+}
