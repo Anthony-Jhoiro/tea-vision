@@ -1,7 +1,7 @@
-import { ServerFastifyInstance } from 'server/app/fastifyTypes';
+import { ServerFastifyInstance } from '../fastifyTypes';
 import { z } from 'zod';
 import { Tea, TeaType, teaTypes } from 'domains';
-import { createTeaService } from 'server/core/teaService';
+import { createTeaService } from '../../core/teaService';
 import { createTeaStorageJson } from 'tea-storage-json';
 
 const TeaIdSchema = z.string();

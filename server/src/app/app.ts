@@ -1,6 +1,6 @@
 import * as path from 'path';
 import AutoLoad from '@fastify/autoload';
-import { ServerFastifyInstance } from 'server/app/fastifyTypes';
+import { ServerFastifyInstance } from './fastifyTypes';
 
 /* eslint-disable-next-line */
 export interface AppOptions {}

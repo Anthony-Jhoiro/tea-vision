@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import { createGlobPatternsForDependencies } from '@nx/js/src/utils/generate-globs';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import CommonTailwindConfig from '../common/config/tailwind-config/src/index';
 
 console.log(

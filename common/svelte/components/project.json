@@ -6,16 +6,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/rollup:rollup",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/common/svelte/components",
         "main": "common/svelte/components/src/index.ts",
         "tsConfig": "common/svelte/components/tsconfig.lib.json",
-        "assets": [],
-        "project": "common/svelte/components/package.json",
-        "compiler": "swc",
-        "format": ["cjs", "esm"]
+        "assets": ["common/svelte/components/*.md"]
       }
     }
   }

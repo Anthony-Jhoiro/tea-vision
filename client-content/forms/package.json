@@ -1,7 +1,12 @@
 {
-  "name": "client-content/forms",
+  "name": "client-content-forms",
   "version": "0.0.1",
-  "dependencies": {},
+  "type": "module",
+  "dependencies": {
+    "zod": "^3.23.8",
+    "svelte": "^4.2.16",
+    "@sveltejs/vite-plugin-svelte": "^3.1.0"
+  },
   "main": "./index.js",
   "module": "./index.mjs",
   "typings": "./index.d.ts",

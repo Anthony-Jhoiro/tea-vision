@@ -16,7 +16,6 @@
     SelectItem,
     SelectContent,
     SelectValue,
-    SelectInput,
   } from 'common-svelte';
   import { createEventDispatcher } from 'svelte';
   import { Camera, Clock, Thermometer } from 'lucide-svelte';

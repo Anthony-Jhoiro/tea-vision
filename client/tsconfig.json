@@ -18,7 +18,7 @@
     "skipLibCheck": true,
     "types": ["vite/client"]
   },
-  "include": ["src"],
+  "include": ["src", "tailwind.config.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"
