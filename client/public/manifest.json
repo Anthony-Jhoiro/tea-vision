@@ -1,7 +1,13 @@
 {
   "name": "Svelte PWA",
   "short_name": "Svelte PWA",
-  "icons": [],
+  "icons": [
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#2F3BA2",

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Header, Footer } from 'common-svelte';
+  import { Header, Footer, PWAInstall } from 'common-svelte';
   import { Router, Link, Route } from 'svelte-routing';
   import Home from './routes/Home.svelte';
   import New from './routes/New.svelte';
@@ -11,6 +11,7 @@
 </script>
 
 <QueryClientProvider client={queryClient}>
+  <PWAInstall />
   <Router {url}>
     <div
       class="macchiato bg-base dark flex min-h-screen w-full flex-col justify-between"
