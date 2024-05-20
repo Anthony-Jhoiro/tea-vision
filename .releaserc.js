@@ -53,7 +53,8 @@ module.exports = {
       {
         prepareCmd:
           'nx run-many -t set-version --args="--version=${nextRelease.version}"',
-        publishCmd: 'nx run-many -t release',
+        publishCmd:
+          'nx run-many -t release --args="--version=${nextRelease.version}"',
       },
     ],
     [
