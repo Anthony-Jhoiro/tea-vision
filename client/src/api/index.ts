@@ -6,7 +6,7 @@ import {
 import { NewTeaFormSchema } from 'client-content-forms';
 import { Tea } from 'domains';
 
-export const API_ENDPOINT = 'http://localhost:3001';
+export const API_ENDPOINT = 'http://localhost:3001/api';
 
 const keysQueryKey = 'teas';
 

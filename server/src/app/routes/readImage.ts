@@ -15,7 +15,7 @@ const OpenAITeaSchema = z.object({
 });
 
 export default async function (fastify: FastifyInstance) {
-  fastify.post('/readImage', async function (request, reply) {
+  fastify.post('/api/readImage', async function (request, reply) {
     const file = await request.file();
 
     const chat = new ChatOpenAI({

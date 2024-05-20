@@ -22,7 +22,7 @@ const CreateTeaSchema = TeaSchema.omit({ id: true });
 
 export default async function (fastify: ServerFastifyInstance) {
   fastify.get(
-    '/teas',
+    '/api/teas',
     {
       schema: {
         response: {
@@ -46,7 +46,7 @@ export default async function (fastify: ServerFastifyInstance) {
   );
 
   fastify.post(
-    '/teas',
+    '/api/teas',
     {
       schema: {
         body: CreateTeaSchema,
@@ -65,7 +65,7 @@ export default async function (fastify: ServerFastifyInstance) {
   );
 
   fastify.get(
-    '/teas/:id',
+    '/api/teas/:id',
     {
       schema: {
         querystring: z.object({
