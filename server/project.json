@@ -41,7 +41,13 @@
             }
           }
         }
-      }
+      },
+      "dependsOn": [
+        {
+          "projects": "client",
+          "target": "build"
+        }
+      ]
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -57,6 +63,27 @@
           "buildTarget": "server:build:production"
         }
       }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t ghcr.io/anthony-jhoiro/tea-vision:{args.version} dist/server -f server/Dockerfile",
+        "args": ["--tag=dev"]
+      },
+      "dependsOn": ["build"]
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker push ghcr.io/anthony-jhoiro/tea-vision:{args.version}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "docker",
+          "params": "forward"
+        }
+      ]
     }
   }
 }
