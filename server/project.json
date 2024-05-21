@@ -42,6 +42,14 @@
           }
         }
       },
+      "dependsOn": ["copy-client-dist"]
+    },
+
+    "copy-client-dist": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mkdir -p ./server/src/client-dist && cp -r ./dist/client/* ./server/src/client-dist"
+      },
       "dependsOn": [
         {
           "projects": "client",
