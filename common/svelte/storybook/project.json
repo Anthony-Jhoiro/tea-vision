@@ -1,0 +1,13 @@
+{
+  "name": "svelte-storybook",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "common/svelte/storybook/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+  },
+  "implicitDependencies": [
+    "common-svelte-components",
+    "client-content-forms"
+  ]
+}
