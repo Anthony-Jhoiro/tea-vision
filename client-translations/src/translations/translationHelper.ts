@@ -4,7 +4,7 @@ type _I18nTranslation<T extends TranslationFile | string> = T extends string
   ? ''
   : keyof {
       [Key in keyof T as Key extends `${infer KeyName}`
-        ? // @ts-ignore
+        ? // @ts-expect-error no idea on how to remove it
           `.${KeyName}${_I18nTranslation<T[Key]>}`
         : '~~']: true;
     };

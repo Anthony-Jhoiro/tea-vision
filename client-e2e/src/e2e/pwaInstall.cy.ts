@@ -21,7 +21,9 @@ describe('PWA Install', () => {
 
   it('should display PWA install popover', () => {
     cy.window().trigger('beforeinstallprompt', {
-      prompt() {},
+      prompt() {
+        // I am empty but I am happy with it!
+      },
     });
 
     getPopoverTitle().should('be.visible');
