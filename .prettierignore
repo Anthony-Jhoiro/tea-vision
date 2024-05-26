@@ -4,3 +4,5 @@
 /.nx/cache
 
 *.hbs
+
+CHANGELOG.md
