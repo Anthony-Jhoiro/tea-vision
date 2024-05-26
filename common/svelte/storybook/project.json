@@ -4,10 +4,6 @@
   "sourceRoot": "common/svelte/storybook/src",
   "projectType": "library",
   "tags": [],
-  "targets": {
-  },
-  "implicitDependencies": [
-    "common-svelte-components",
-    "client-content-forms"
-  ]
+  "targets": {},
+  "implicitDependencies": ["common-svelte-components", "client-content-forms"]
 }

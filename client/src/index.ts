@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import './index.css';
+import 'tailwind-config/index.css';
 
 const app = new App({
   target: document.getElementById('app') as HTMLElement,
