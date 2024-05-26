@@ -1,3 +1,9 @@
+# [v1.0.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.0...v1.0.1) (2024-05-26)
+
+## 🐛 Bug Fixes
+
+- [`dbc9f94`](https://github.com/Anthony-Jhoiro/tea-vision/commit/dbc9f94)  close pwa on dismiss clicked and fix translations (#6) (Issues: [`#6`](https://github.com/Anthony-Jhoiro/tea-vision/issues/6))
+
 # [v1.0.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.0...v1.0.1) (2024-05-21)
 
 # [v1.0.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.0...v1.0.1) (2024-05-21)
