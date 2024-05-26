@@ -21,7 +21,9 @@
       "common-svelte/*": ["common/svelte/components/src/*"],
       "domains": ["common/domains/src/index.ts"],
       "server/*": ["server/src/*"],
-      "tailwind-config": ["common/config/src/index.ts"],
+      "svelte-storybook": ["common/svelte/storybook/src/index.ts"],
+      "tailwind-config": ["common/config/tailwind-config/src/index.ts"],
+      "tailwind-config/*": ["common/config/tailwind-config/src/*"],
       "tea-storage-json": ["server-adapters/tea-storage/json/src/index.ts"],
       "tea-storage-port": ["server-adapters/tea-storage/port/src/index.ts"]
     }
