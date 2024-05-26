@@ -1,0 +1,6 @@
+{
+  "title": "Voulez-vous installer l'application",
+  "description": "Une fois installée, vous pourrez accéder à votre application sur votre téléphone, sans passer par le site web.",
+  "installButton": "Installer",
+  "dismissButton": "Non merci"
+}

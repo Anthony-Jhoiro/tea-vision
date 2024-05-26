@@ -1,0 +1,6 @@
+{
+  "actions": {
+    "newTeaButton": "Ajouter un nouveau thé",
+    "startClockButton": "Démarer le minuteur"
+  }
+}
