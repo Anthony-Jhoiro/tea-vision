@@ -85,7 +85,8 @@
       "options": {
         "commands": [
           "docker tag ghcr.io/anthony-jhoiro/tea-vision:{args.version} ghcr.io/anthony-jhoiro/tea-vision:latest",
-          "docker push ghcr.io/anthony-jhoiro/tea-vision:{args.version} ghcr.io/anthony-jhoiro/tea-vision:latest"
+          "docker push ghcr.io/anthony-jhoiro/tea-vision:{args.version}",
+          "docker push ghcr.io/anthony-jhoiro/tea-vision:latest"
         ],
         "parallel": false
       },
