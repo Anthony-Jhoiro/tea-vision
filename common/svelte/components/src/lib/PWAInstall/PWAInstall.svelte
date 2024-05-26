@@ -18,6 +18,13 @@
   let drawerOpened = false;
   let promptable: Pick<BeforeInstallPromptEvent, 'prompt'> | null = null;
 
+  export let translations: {
+    title: string;
+    description: string;
+    installButton: string;
+    dismissButton: string;
+  };
+
   function openDrawer() {
     if (window.matchMedia('(display-mode: standalone)').matches) {
       return;
@@ -27,11 +34,14 @@
   }
 
   async function onConfirm() {
-    console.log(promptable);
     if (!promptable) {
       return;
     }
     await promptable.prompt();
+    close();
+  }
+
+  function close() {
     promptable = null;
     drawerOpened = false;
   }
@@ -59,18 +69,19 @@
   <Drawer.Content>
     <div class="container">
       <Drawer.Header>
-        <Drawer.Title>Voulez-vous installer l'application ?</Drawer.Title>
-        <Drawer.Description
-          >Une fois installée, vous pourrez accéder à votre application sur
-          votre téléphone, sans passer par le site web.</Drawer.Description
-        >
+        <Drawer.Title>{translations.title}</Drawer.Title>
+        <Drawer.Description>{translations.description}</Drawer.Description>
       </Drawer.Header>
       <Drawer.Footer>
         <div class="flex gap-5">
           <Drawer.Close asChild={true}>
-            <Button class="flex-grow" variant="outline">Non merci</Button>
+            <Button class="flex-grow" variant="outline" on:click={close}
+              >{translations.dismissButton}</Button
+            >
           </Drawer.Close>
-          <Button class="flex-grow" on:click={onConfirm}>Installer</Button>
+          <Button class="flex-grow" on:click={onConfirm}
+            >{translations.installButton}</Button
+          >
         </div>
       </Drawer.Footer>
     </div>

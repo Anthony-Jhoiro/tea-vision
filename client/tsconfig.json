@@ -16,9 +16,14 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "plugins": [
+      {
+        "name": "typescript-svelte-plugin"
+      }
+    ]
   },
-  "include": ["src", "tailwind.config.ts"],
+  "include": ["src", "tailwind.config.ts", "**/*.svelte"],
   "references": [
     {
       "path": "./tsconfig.app.json"

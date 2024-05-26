@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "client-content-forms": ["client-content/forms/src/index.ts"],
+      "client-translations": ["client-translations/src/index.ts"],
       "common-svelte": ["common/svelte/components/src/index.ts"],
       "common-svelte/*": ["common/svelte/components/src/*"],
       "domains": ["common/domains/src/index.ts"],

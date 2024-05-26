@@ -1,0 +1,19 @@
+{
+  "name": "client-translations",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "client-translations/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/client-translations",
+        "main": "client-translations/src/index.ts",
+        "tsConfig": "client-translations/tsconfig.lib.json",
+        "assets": ["client-translations/*.md"]
+      }
+    }
+  }
+}
