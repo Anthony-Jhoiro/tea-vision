@@ -7,7 +7,7 @@ const config: StorybookConfig = {
   stories: async (list: StoriesEntry[]) => {
     await createProjectGraphAsync();
     return [
-      ...list,
+      ...(list ?? []),
       ...createGlobPatternsForDependencies(
         __dirname,
         '**/*.stories.@(js|jsx|ts|tsx|mdx|svelte)',
@@ -16,9 +16,9 @@ const config: StorybookConfig = {
   },
   addons: [
     '@storybook/addon-essentials', //base
-    '@storybook/addon-interactions',
+    '@storybook/addon-interactions', // component Testing
     '@storybook/addon-svelte-csf', // write stories in svelte format
-    '@storybook/addon-themes',
+    '@storybook/addon-themes', // Tailwind
   ],
   framework: {
     name: '@storybook/svelte-vite',
@@ -28,10 +28,7 @@ const config: StorybookConfig = {
       },
     },
   },
+  staticDirs: ['../static'],
 };
 
 export default config;
-
-// To customize your Vite configuration you can use the viteFinal field.
-// Check https://storybook.js.org/docs/react/builders/vite#configuration
-// and https://nx.dev/recipes/storybook/custom-builder-configs

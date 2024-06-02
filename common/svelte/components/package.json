@@ -10,7 +10,9 @@
     "svelte": "^4.2.16",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
-    "vaul-svelte": "^0.3.1"
+    "vaul-svelte": "^0.3.1",
+    "@storybook/svelte": "8.1.5",
+    "@storybook/test": "^8.1.5"
   },
   "main": "./index.js",
   "module": "./index.mjs",

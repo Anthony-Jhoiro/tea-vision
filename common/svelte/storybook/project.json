@@ -5,5 +5,9 @@
   "projectType": "library",
   "tags": [],
   "targets": {},
-  "implicitDependencies": ["common-svelte-components", "client-content-forms"]
+  "implicitDependencies": [
+    "common-svelte-components",
+    "client-content-forms",
+    "client"
+  ]
 }

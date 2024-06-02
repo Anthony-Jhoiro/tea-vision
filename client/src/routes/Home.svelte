@@ -1,6 +1,8 @@
-<script>
-  import { Loader } from 'common-svelte';
+<script lang="ts">
+  import { Footer, Loader } from 'common-svelte';
   import { useListTeas } from '../api';
+  import { Link } from 'svelte-routing';
+  import { t } from '../i18n.ts';
 
   const getTeasQuery = useListTeas();
 </script>
@@ -16,3 +18,12 @@
     {JSON.stringify($getTeasQuery.data, null, 2)}
   </pre>
 {/if}
+
+<Footer
+  leftButton={Link}
+  rightButton={Link}
+  leftButtonProps={{ to: '/' }}
+  rightButtonProps={{ to: '/new' }}
+  leftButtonText={$t('home.actions.startClockButton')}
+  rightButtonText={$t('home.actions.newTeaButton')}
+/>

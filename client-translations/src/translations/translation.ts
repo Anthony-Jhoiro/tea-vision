@@ -1,9 +1,14 @@
 import FrHomeTranslations from './fr/home.json';
 import FrPwaInstallTranslations from './fr/pwa_install.json';
+import FrBrewingTranslations from './fr/brewing.json';
 import { I18nTranslation, TranslationFile } from './translationHelper';
 
 export const locales = ['fr'] as const;
-export const translationNamespaces = ['home', 'pwa_install'] as const;
+export const translationNamespaces = [
+  'home',
+  'pwa_install',
+  'brewing',
+] as const;
 
 export type TranslationNamespace = (typeof translationNamespaces)[number];
 export type Locale = (typeof locales)[number];
@@ -13,6 +18,7 @@ export type HomeTranslation = I18nTranslation<typeof FrHomeTranslations>;
 const translationsFR = {
   home: FrHomeTranslations,
   pwa_install: FrPwaInstallTranslations,
+  brewing: FrBrewingTranslations,
 } satisfies Record<TranslationNamespace, TranslationFile>;
 
 export type NamespaceTranslations<Namespace extends TranslationNamespace> =

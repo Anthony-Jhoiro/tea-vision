@@ -11,5 +11,6 @@ export * from './lib/components/ui/dialog';
 export * from './lib/components/ui/drawer';
 export * from './lib/components/ui/textarea';
 export * from './lib/components/ui/select';
+export * from './lib/components/ui/slider';
 
 export * from './lib/utils';

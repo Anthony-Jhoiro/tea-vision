@@ -4,6 +4,8 @@ import { defineConfig } from 'vite';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { resolve } from 'node:path';
+import * as path from 'node:path';
+import sveltePreprocess from 'svelte-preprocess';
 
 export default defineConfig({
   root: __dirname,
@@ -19,7 +21,12 @@ export default defineConfig({
     host: 'localhost',
   },
 
-  plugins: [nxViteTsPaths(), svelte()],
+  plugins: [
+    nxViteTsPaths(),
+    svelte({
+      preprocess: sveltePreprocess({}),
+    }),
+  ],
 
   worker: {
     plugins: () => [nxViteTsPaths()],
@@ -42,9 +49,7 @@ export default defineConfig({
 
   test: {
     globals: true,
-    cache: {
-      dir: '../node_modules/.vitest',
-    },
+
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
@@ -52,6 +57,17 @@ export default defineConfig({
     coverage: {
       reportsDirectory: '../coverage/client',
       provider: 'v8',
+    },
+    setupFiles: path.join('.', 'test', 'setup.ts'),
+    server: {
+      deps: {
+        inline: [
+          '@storybook/svelte',
+          'bits-ui',
+          'lucide-svelte',
+          'vaul-svelte',
+        ],
+      },
     },
   },
 });

@@ -5,8 +5,10 @@ import {
 } from '@tanstack/svelte-query';
 import { NewTeaFormSchema } from 'client-content-forms';
 import { Tea } from 'domains';
-
-export const API_ENDPOINT = 'http://localhost:3001/api';
+//@ts-expect-error vite based env variable are somehow not recognized
+export const API_ENDPOINT = import.meta.env.DEV
+  ? 'http://localhost:3001/api'
+  : '/api';
 
 const keysQueryKey = 'teas';
 
@@ -32,6 +34,15 @@ export const useListTeas = () =>
     queryKey: [keysQueryKey],
     queryFn: async () => {
       const r = await fetch(API_ENDPOINT + '/teas');
+      return await r.json();
+    },
+  });
+
+export const useGetTeaById = (id: Tea['id']) =>
+  createQuery<void, Error, Tea>({
+    queryKey: [keysQueryKey],
+    queryFn: async () => {
+      const r = await fetch(API_ENDPOINT + '/teas/' + id);
       return await r.json();
     },
   });
