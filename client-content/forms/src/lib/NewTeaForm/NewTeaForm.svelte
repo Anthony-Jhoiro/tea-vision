@@ -35,7 +35,7 @@
     description: '',
     minimumBrewingTimeInMinutes: 4,
     maximumBrewingTimeInMinutes: 4,
-    brewingTemperature: 90,
+    brewingTemperatureInCelcius: 90,
     type: null,
     imageUrl: null,
   };
@@ -194,7 +194,7 @@
             min={40}
             max={100}
             id="new-tea-form_brewingTemperature_input"
-            bind:value={values.brewingTemperature}
+            bind:value={values.brewingTemperatureInCelsius}
           />
         </Label>
       </div>

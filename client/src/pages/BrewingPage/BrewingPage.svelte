@@ -38,39 +38,39 @@
   $: brewingTimeText = formatTime(brewingTime[0]);
 </script>
 
-<div class="h-full w-full">
-  <div
-    class="nice-background bg-crust absolute left-0 top-0 z-0 h-full w-full"
-  />
-  <div
-    class="relative z-10 grid h-full grid-cols-3 grid-rows-[10fr_1fr_1fr_1fr] justify-between gap-8 px-5 py-8"
-  >
-    <div class="col-span-2 flex flex-col gap-2">
-      <h2 class="text-text text-xl">{tea.name}</h2>
-      <p
-        class={clsx(
-          getTemperatureClassName(
-            tea.brewingTemperatureInCelsius,
-            temperatureRadiant,
-          ),
-          'flex',
-        )}
-      >
-        <Thermometer />
-        <span>
-          {tea.brewingTemperatureInCelsius}°
-        </span>
-      </p>
-    </div>
+<!--<div class="flex-growh-full w-full">-->
+<div class="nice-background bg-crust absolute left-0 top-0 z-0 h-full w-full" />
 
-    <div class="aspect-square h-16 overflow-hidden">
+<div
+  class="flex-stretch relative z-10 flex h-full grow flex-col justify-between px-5"
+>
+  <header class="grid grid-flow-col grid-cols-[2fr_1fr] grid-rows-2 gap-2">
+    <h2 class="text-text text-xl">{tea.name}</h2>
+    <p
+      class={clsx(
+        getTemperatureClassName(
+          tea.brewingTemperatureInCelsius,
+          temperatureRadiant,
+        ),
+        'flex',
+      )}
+    >
+      <Thermometer />
+      <span>
+        {tea.brewingTemperatureInCelsius}°
+      </span>
+    </p>
+
+    <div class="row-span-2 ml-auto aspect-square h-16 overflow-hidden">
       <img
         class="max-h-full max-w-full object-contain"
         src={brandLogo}
         alt={tea.brand}
       />
     </div>
+  </header>
 
+  <div class="grid grid-cols-3 gap-3">
     <div class="col-span-2 col-start-2 flex gap-3">
       <time class="text-text text-center font-mono text-4xl">
         {brewingTimeText}
@@ -100,6 +100,8 @@
     </div>
   </div>
 </div>
+
+<!--</div>-->
 
 <style lang="postcss">
   .nice-background {

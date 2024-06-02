@@ -13,7 +13,7 @@ const TeaSchema = z.object({
   description: z.string(),
   minimumBrewingTimeInMinutes: z.number(),
   maximumBrewingTimeInMinutes: z.number(),
-  brewingTemperature: z.number(),
+  brewingTemperatureInCelsius: z.number(),
   type: z.enum<TeaType, typeof teaTypes>(teaTypes),
   imageUrl: z.any().optional(),
 });

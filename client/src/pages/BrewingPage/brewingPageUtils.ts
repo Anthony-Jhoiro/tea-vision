@@ -4,12 +4,12 @@ const temperatureGradientRange =
   maximumTemperatureGradient - minimumTemperatureGradient;
 
 export function getTemperatureClassName(
-  brewingTemperature: number,
+  brewingTemperatureInCelsius: number,
   temperatureGradientClassNames: string[],
 ) {
   const croppedTemperature = Math.max(
     0,
-    Math.min(30, brewingTemperature - minimumTemperatureGradient),
+    Math.min(30, brewingTemperatureInCelsius - minimumTemperatureGradient),
   );
 
   const rad = temperatureGradientRange / temperatureGradientClassNames.length;

@@ -14,7 +14,7 @@ export const newTeaFormSchema = z.object({
     (n) => parseInt(n as string),
     z.coerce.number().min(0).int(),
   ),
-  brewingTemperature: z.number().min(0).max(100).int(),
+  brewingTemperatureInCelsius: z.number().min(0).max(100).int(),
   type: z.enum(teaTypes),
 });
 
@@ -30,7 +30,7 @@ export const defaultNewTeaFormValues: InProgressNewTeaForm = {
   description: '',
   minimumBrewingTimeInMinutes: 4,
   maximumBrewingTimeInMinutes: 4,
-  brewingTemperature: 90,
+  brewingTemperatureInCelsius: 90,
   type: null,
   imageUrl: null,
 };
