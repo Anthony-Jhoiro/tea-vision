@@ -5,8 +5,10 @@ import {
 } from '@tanstack/svelte-query';
 import { NewTeaFormSchema } from 'client-content-forms';
 import { Tea } from 'domains';
-
-export const API_ENDPOINT = 'http://192.168.1.12:3001/api';
+//@ts-expect-error vite based env variable are somehow not recognized
+export const API_ENDPOINT = import.meta.env.DEV
+  ? 'http://localhost:3001/api'
+  : '/api';
 
 const keysQueryKey = 'teas';
 
