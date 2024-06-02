@@ -42,16 +42,24 @@ export default defineConfig({
       external: [],
     },
   },
+  optimizeDeps: {
+    exclude: ['lucide-svelte'],
+  },
 
   test: {
     globals: true,
-    cache: { dir: '../../../node_modules/.vitest' },
-    environment: 'node',
+    // cache: { dir: '../../../node_modules/.vitest' },
+    environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: '../../../coverage/common/svelte/components',
-      provider: 'v8',
+    // reporters: ['default'],
+    // coverage: {
+    //   reportsDirectory: '../../../coverage/common/svelte/components',
+    //   provider: 'v8',
+    // },
+    server: {
+      deps: {
+        inline: ['lucide-svelte', '@storybook/svelte'],
+      },
     },
   },
 });

@@ -7,7 +7,7 @@ const config: StorybookConfig = {
   stories: async (list: StoriesEntry[]) => {
     await createProjectGraphAsync();
     return [
-      ...list,
+      ...(list ?? []),
       ...createGlobPatternsForDependencies(
         __dirname,
         '**/*.stories.@(js|jsx|ts|tsx|mdx|svelte)',
@@ -16,9 +16,10 @@ const config: StorybookConfig = {
   },
   addons: [
     '@storybook/addon-essentials', //base
-    '@storybook/addon-interactions',
+    '@storybook/addon-interactions', // component Testing
     '@storybook/addon-svelte-csf', // write stories in svelte format
-    '@storybook/addon-themes',
+    '@storybook/addon-themes', // Tailwind
+    // '@storybook/addon-actions', // components emits
   ],
   framework: {
     name: '@storybook/svelte-vite',
@@ -28,6 +29,7 @@ const config: StorybookConfig = {
       },
     },
   },
+  staticDirs: ['../static'],
 };
 
 export default config;

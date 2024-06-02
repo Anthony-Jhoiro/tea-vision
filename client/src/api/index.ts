@@ -36,6 +36,15 @@ export const useListTeas = () =>
     },
   });
 
+export const useGetTeaById = (id: Tea['id']) =>
+  createQuery<void, Error, Tea>({
+    queryKey: [keysQueryKey],
+    queryFn: async () => {
+      const r = await fetch(API_ENDPOINT + '/teas/' + id);
+      return await r.json();
+    },
+  });
+
 export const useCreateTea = (
   opts?: CreateMutationOptions<Tea, Error, Omit<Tea, 'id'>>,
 ) =>

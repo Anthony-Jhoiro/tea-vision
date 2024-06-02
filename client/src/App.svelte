@@ -5,6 +5,7 @@
   import New from './routes/New.svelte';
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
   import { t } from './i18n';
+  import Brewing from './routes/Brewing.svelte';
 
   export let url = '';
 
@@ -32,9 +33,8 @@
 
       <main class="flex-grow py-5">
         <Route path="/new" component={New} />
-        <Route path="/">
-          <Home />
-        </Route>
+        <Route path="/" component={Home} />
+        <Route path="/teas/:id" component={Brewing} />
       </main>
       <Footer
         leftButton={Link}

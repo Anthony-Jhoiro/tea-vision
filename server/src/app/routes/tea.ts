@@ -68,7 +68,7 @@ export default async function (fastify: ServerFastifyInstance) {
     '/api/teas/:id',
     {
       schema: {
-        querystring: z.object({
+        params: z.object({
           id: TeaIdSchema,
         }),
         response: {
@@ -81,7 +81,7 @@ export default async function (fastify: ServerFastifyInstance) {
         createTeaStorageJson('./storage.json'),
       );
 
-      return teaService.getTeaById(req.query.id);
+      return teaService.getTeaById(req.params.id);
     },
   );
 }
