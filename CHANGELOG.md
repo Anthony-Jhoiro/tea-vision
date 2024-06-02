@@ -1,3 +1,9 @@
+# [v1.1.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.4...v1.1.0) (2024-06-02)
+
+## ✨ New Features
+
+- [`d17c2cf`](https://github.com/Anthony-Jhoiro/tea-vision/commit/d17c2cf)  introduce brewing page (#10) (Issues: [`#10`](https://github.com/Anthony-Jhoiro/tea-vision/issues/10))
+
 # [v1.0.4](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.3...v1.0.4) (2024-05-26)
 
 # [v1.0.3](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.2...v1.0.3) (2024-05-26)
