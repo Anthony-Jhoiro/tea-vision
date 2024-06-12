@@ -1,17 +1,18 @@
-name: CI
+name: Branch Release
 
 on:
   workflow_dispatch:
-
-permissions:
-  actions: read
-  contents: read
 
 jobs:
   main:
     runs-on: ubuntu-latest
     env:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    permissions:
+      actions: read
+      contents: read
+      attestations: write # to provide attestations about built images (not implemented, but it could be nice)
+      packages: write # to push the built docker images
     steps:
       - uses: actions/checkout@v4
         with:
