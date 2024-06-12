@@ -46,3 +46,18 @@ self.addEventListener('fetch', (evt) => {
     }),
   );
 });
+
+self.addEventListener('message', (evt) => {
+  console.log('[ServiceWorker] Message', evt.data);
+
+  const now = new Date();
+  const then = new Date(evt['notifyAt']);
+
+  const duration = then.getTime() - now.getTime();
+
+  self.registration
+    .showNotification('Your tea is ready!! SW')
+    .then(console.log);
+
+  setTimeout(() => {}, duration);
+});

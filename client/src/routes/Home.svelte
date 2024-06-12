@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Footer, Loader } from 'common-svelte';
-  import { useListTeas } from '../api';
   import { Link } from 'svelte-routing';
   import { t } from '../i18n.ts';
+  import { useListTeas } from '../services/storage';
 
-  const getTeasQuery = useListTeas();
+  $: getTeasQuery = useListTeas();
 </script>
 
 {#if $getTeasQuery.isLoading}
@@ -14,9 +14,13 @@
 {/if}
 
 {#if $getTeasQuery.data}
-  <pre>
-    {JSON.stringify($getTeasQuery.data, null, 2)}
-  </pre>
+  <ul>
+    {#each $getTeasQuery.data as tea}
+      <li>
+        <Link to="/teas/{tea.id}">{tea.name}</Link>
+      </li>
+    {/each}
+  </ul>
 {/if}
 
 <Footer
