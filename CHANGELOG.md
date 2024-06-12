@@ -1,3 +1,5 @@
+# [v1.1.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.1.0...v1.1.1) (2024-06-12)
+
 # [v1.1.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.0.4...v1.1.0) (2024-06-02)
 
 ## ✨ New Features
