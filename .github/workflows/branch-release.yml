@@ -34,4 +34,4 @@ jobs:
 
       - run: |
           TAG="$(git describe --tags --abbrev=0 || echo v0.0.0)-dev-$(git rev-parse --short HEAD)"
-          yarn nx-cloud record -- yarn nx run-many --target=release --parallel=3 --args="--version=$TAG"
+          yarn nx-cloud record -- yarn nx run-many --skip-nx-cache --target=release --parallel=3 --args="--version=$TAG"
