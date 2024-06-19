@@ -55,9 +55,7 @@ self.addEventListener('message', (evt) => {
 
   const duration = then.getTime() - now.getTime();
 
-  self.registration
-    .showNotification('Your tea is ready!! SW')
-    .then(console.log);
-
-  setTimeout(() => {}, duration);
+  setTimeout(() => {
+    self.registration.showNotification('Your tea is ready!!').then(console.log);
+  }, duration);
 });

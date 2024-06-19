@@ -1,3 +1,5 @@
 {
-  "startBrewing": "Démarrer"
+  "startBrewing": "Démarrer",
+  "brewingFinished": "Votre thé est prêt!",
+  "notificationPermissionButton": "Recevoir une notification"
 }

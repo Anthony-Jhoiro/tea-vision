@@ -10,12 +10,10 @@
   function onStart(e: CustomEvent<{ brewingTime: number }>) {
     const start = new Date();
     const end = new Date(start.getTime() + e.detail.brewingTime * 60 * 1000);
-    navigate('/teas/' + id + '/timer', {
-      state: {
-        start: start.toISOString(),
-        end: end.toISOString(),
-      },
-    });
+
+    const startAsString = start.toISOString();
+    const endAsString = end.toISOString();
+    navigate(`/teas/${id}/timer?start=${startAsString}&end=${endAsString}`);
   }
 
   $: query = useGetTeaById(id);

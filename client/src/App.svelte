@@ -14,14 +14,14 @@
 </script>
 
 <QueryClientProvider client={queryClient}>
-  <!--  <PWAInstall-->
-  <!--    translations={{-->
-  <!--      title: $t('pwa_install.title'),-->
-  <!--      description: $t('pwa_install.description'),-->
-  <!--      installButton: $t('pwa_install.installButton'),-->
-  <!--      dismissButton: $t('pwa_install.dismissButton'),-->
-  <!--    }}-->
-  <!--  />-->
+  <PWAInstall
+    translations={{
+      title: $t('pwa_install.title'),
+      description: $t('pwa_install.description'),
+      installButton: $t('pwa_install.installButton'),
+      dismissButton: $t('pwa_install.dismissButton'),
+    }}
+  />
   <Router {url}>
     <div
       class="macchiato bg-base dark flex min-h-screen w-full flex-col justify-between"
