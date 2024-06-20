@@ -38,70 +38,71 @@
   $: brewingTimeText = formatTime(brewingTime[0]);
 </script>
 
-<!--<div class="flex-growh-full w-full">-->
-<div class="nice-background bg-crust absolute left-0 top-0 z-0 h-full w-full" />
+<div class="relative flex h-full w-full flex-grow flex-col">
+  <div
+    class="nice-background bg-crust absolute left-0 top-0 z-0 h-full w-full"
+  />
 
-<div
-  class="flex-stretch relative z-10 flex h-full grow flex-col justify-between px-5"
->
-  <header class="grid grid-flow-col grid-cols-[2fr_1fr] grid-rows-2 gap-2">
-    <h2 class="text-text text-xl">{tea.name}</h2>
-    <p
-      class={clsx(
-        getTemperatureClassName(
-          tea.brewingTemperatureInCelsius,
-          temperatureRadiant,
-        ),
-        'flex',
-      )}
-    >
-      <Thermometer />
-      <span>
-        {tea.brewingTemperatureInCelsius}°
-      </span>
-    </p>
-
-    <div class="row-span-2 ml-auto aspect-square h-16 overflow-hidden">
-      <img
-        class="max-h-full max-w-full object-contain"
-        src={brandLogo}
-        alt={tea.brand}
-      />
-    </div>
-  </header>
-
-  <div class="grid grid-cols-3 gap-3">
-    <div class="col-span-2 col-start-2 flex gap-3">
-      <time class="text-text text-center font-mono text-4xl">
-        {brewingTimeText}
-      </time>
-      <Button on:click={onStart}>
-        {buttonText}
-      </Button>
-    </div>
-    <Slider
-      class="col-span-3 w-full"
-      orientation="horizontal"
-      min={0}
-      max={tea.maximumBrewingTimeInMinutes}
-      bind:value={brewingTime}
-      step={0.5}
-    />
-
-    <div class="col-span-3">
+  <div
+    class="flex-stretch relative z-10 flex h-full grow flex-col justify-between px-5"
+  >
+    <header class="grid grid-flow-col grid-cols-[2fr_1fr] grid-rows-2 gap-2">
+      <h2 class="text-text text-xl">{tea.name}</h2>
       <p
-        class={clsx('text-text cursor-pointer transition-all', {
-          'line-clamp-3': !expendDescription,
-        })}
-        on:click={() => (expendDescription = !expendDescription)}
+        class={clsx(
+          getTemperatureClassName(
+            tea.brewingTemperatureInCelsius,
+            temperatureRadiant,
+          ),
+          'flex',
+        )}
       >
-        {tea.description}
+        <Thermometer />
+        <span>
+          {tea.brewingTemperatureInCelsius}°
+        </span>
       </p>
+
+      <div class="row-span-2 ml-auto aspect-square h-16 overflow-hidden">
+        <img
+          class="max-h-full max-w-full object-contain"
+          src={brandLogo}
+          alt={tea.brand}
+        />
+      </div>
+    </header>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="col-span-2 col-start-2 flex gap-3">
+        <time class="text-text text-center font-mono text-4xl">
+          {brewingTimeText}
+        </time>
+        <Button on:click={onStart}>
+          {buttonText}
+        </Button>
+      </div>
+      <Slider
+        class="col-span-3 w-full"
+        orientation="horizontal"
+        min={0}
+        max={tea.maximumBrewingTimeInMinutes}
+        bind:value={brewingTime}
+        step={0.5}
+      />
+
+      <div class="col-span-3">
+        <p
+          class={clsx('text-text cursor-pointer transition-all', {
+            'line-clamp-3': !expendDescription,
+          })}
+          on:click={() => (expendDescription = !expendDescription)}
+        >
+          {tea.description}
+        </p>
+      </div>
     </div>
   </div>
 </div>
-
-<!--</div>-->
 
 <style lang="postcss">
   .nice-background {

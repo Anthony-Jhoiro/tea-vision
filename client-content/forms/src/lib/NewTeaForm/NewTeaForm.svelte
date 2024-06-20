@@ -87,7 +87,6 @@
 </script>
 
 <form on:submit|preventDefault={onSubmit} class="grid gap-5">
-  {JSON.stringify(errors)}
   <!-- Picture -->
   <div class="flex justify-center">
     <Label>

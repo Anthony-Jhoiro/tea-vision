@@ -6,6 +6,7 @@
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
   import { t } from './i18n';
   import Brewing from './routes/Brewing.svelte';
+  import Timer from './routes/Timer.svelte';
 
   export let url = '';
 
@@ -35,6 +36,7 @@
         <Route path="/new" component={New} />
         <Route path="/" component={Home} />
         <Route path="/teas/:id" component={Brewing} />
+        <Route path="/teas/:id/timer" component={Timer} />
       </main>
     </div>
   </Router>

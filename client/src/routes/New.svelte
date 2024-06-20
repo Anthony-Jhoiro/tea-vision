@@ -1,8 +1,9 @@
 <script lang="ts">
   import { NewTeaForm, defaultNewTeaFormValues } from 'client-content-forms';
-  import { useCreateTea, useReadFile } from '../api';
+  import { useReadFile } from '../api';
   import { type Tea } from 'domains';
   import { navigate } from 'svelte-routing';
+  import { useCreateTea } from '../services/storage';
 
   let newTeaForm = defaultNewTeaFormValues;
 
@@ -16,13 +17,16 @@
     onSuccess() {
       navigate('/');
     },
+    onError(error) {
+      console.log(error);
+    },
   });
 
   function onReadFile(e: CustomEvent<File>) {
     $readFileMutation.mutate(e.detail);
   }
 
-  function onSubmit(e: CustomEvent<Omit<Tea, 'id'>>) {
+  async function onSubmit(e: CustomEvent<Omit<Tea, 'id'>>) {
     $createTeaMutation.mutate(e.detail);
   }
 </script>

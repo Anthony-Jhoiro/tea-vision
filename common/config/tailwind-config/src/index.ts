@@ -55,6 +55,41 @@ const config: PresetsConfig = {
       fontFamily: {
         sans: [...fontFamily.sans],
       },
+      // keyframes: {
+      //   'preserved-bounce': {
+      //     '0%, 100%': {
+      //       transform:
+      //         'translate(var(--tw-translate-x), calc(var(--tw-translate-y) - 25%) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
+      //       'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
+      //     },
+      //     '50%': {
+      //       transform:
+      //         'translate(var(--tw-translate-x), var(--tw-translate-y), rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
+      //       'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
+      //     },
+      //   },
+      // },
+      // animation: {
+      //   'preserved-bounce': 'preserved-bounce 1s infinite',
+      // },
+
+      keyframes: {
+        'preserved-bounce': {
+          '0%, 100%': {
+            transform:
+              'translate(var(--tw-translate-x), calc(var(--tw-translate-y) - 25%))',
+            'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
+          },
+          '50%': {
+            transform:
+              'translate(var(--tw-translate-x), var(--tw-translate-y))',
+            'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
+          },
+        },
+      },
+      animation: {
+        'preserved-bounce': 'preserved-bounce 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [CatppuccinPlugin],
