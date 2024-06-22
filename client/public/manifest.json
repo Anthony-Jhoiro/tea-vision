@@ -1,6 +1,6 @@
 {
-  "name": "Svelte PWA",
-  "short_name": "Svelte PWA",
+  "name": "My tea collection",
+  "short_name": "Tea",
   "icons": [
     {
       "src": "/icon.png",

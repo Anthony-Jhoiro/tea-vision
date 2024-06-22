@@ -7,6 +7,7 @@
   import { t } from './i18n';
   import Brewing from './routes/Brewing.svelte';
   import Timer from './routes/Timer.svelte';
+  import Logo from './components/Logo.svelte';
 
   export let url = '';
 
@@ -28,7 +29,12 @@
     >
       <Header>
         <Link to="/">
-          <h1>My Tea Collection</h1>
+          <h1 class="flex items-center gap-3">
+            <span class="inline-block text-4xl">
+              <Logo />
+            </span>
+            My Tea Collection
+          </h1>
         </Link>
       </Header>
 
