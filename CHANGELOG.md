@@ -1,3 +1,8 @@
+# [v1.2.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.2.0...v1.2.1) (2024-06-22)
+
+## 💄 Style and UI updates
+- [`ede93ee`](https://github.com/Anthony-Jhoiro/tea-vision/commit/ede93ee)  add Noctibule logo (#13) (Issues: [`#13`](https://github.com/Anthony-Jhoiro/tea-vision/issues/13))
+
 # [v1.2.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.1.2...v1.2.0) (2024-06-20)
 
 ## ✨ New Features
