@@ -7,7 +7,7 @@
     "copy-client-dist": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "mkdir -p ./server/src/client-dist && cp -r ./dist/client/* ./server/src/client-dist"
+        "command": "mkdir -p ./dist/server/client-dist && cp -r ./dist/client/* ./dist/server/client-dist"
       },
       "dependsOn": ["^build"]
     },

@@ -16,13 +16,7 @@
         "bundle": false,
         "main": "server/src/main.ts",
         "tsConfig": "server/tsconfig.app.json",
-        "assets": [
-          {
-            "input": "server/src/client-dist",
-            "glob": "**/*",
-            "output": "./client-dist"
-          }
-        ],
+        "assets": [],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
