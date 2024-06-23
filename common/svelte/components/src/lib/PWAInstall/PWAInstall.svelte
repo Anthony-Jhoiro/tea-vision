@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button, Drawer } from 'common-svelte';
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
   // Docs: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Trigger_install_prompt
 
@@ -63,9 +63,15 @@
       );
     }
   });
+
+  const dispatch = createEventDispatcher();
+
+  function onOpenChange(open: boolean) {
+    dispatch('openChange', open);
+  }
 </script>
 
-<Drawer.Root bind:open={drawerOpened}>
+<Drawer.Root bind:open={drawerOpened} {onOpenChange}>
   <Drawer.Content>
     <div class="container">
       <Drawer.Header>
