@@ -1,3 +1,9 @@
+# [v1.4.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.3.0...v1.4.0) (2024-06-23)
+
+## ✨ New Features
+
+- [`55576a1`](https://github.com/Anthony-Jhoiro/tea-vision/commit/55576a1)  add a limit of one week for the pwa install notices (#16) (Issues: [`#16`](https://github.com/Anthony-Jhoiro/tea-vision/issues/16))
+
 # [v1.3.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.2.1...v1.3.0) (2024-06-23)
 
 ## ✨ New Features
