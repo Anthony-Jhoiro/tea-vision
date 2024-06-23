@@ -1,3 +1,9 @@
+# [v1.3.0](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.2.1...v1.3.0) (2024-06-23)
+
+## ✨ New Features
+
+- [`7bd5a6b`](https://github.com/Anthony-Jhoiro/tea-vision/commit/7bd5a6b)  improve home page (#15) (Issues: [`#15`](https://github.com/Anthony-Jhoiro/tea-vision/issues/15))
+
 # [v1.2.1](https://github.com/Anthony-Jhoiro/tea-vision/compare/v1.2.0...v1.2.1) (2024-06-22)
 
 ## 💄 Style and UI updates
