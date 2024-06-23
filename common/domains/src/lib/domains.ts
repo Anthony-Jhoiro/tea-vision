@@ -5,7 +5,7 @@ export const teaTypes = [
   'white_tea',
   'green_tea',
   'rooibos',
-  'herbal tea',
+  'herbal_tea',
 ] as const;
 
 export type TeaType = (typeof teaTypes)[number];

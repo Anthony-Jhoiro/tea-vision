@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { Footer, Loader } from 'common-svelte';
-  import { Link } from 'svelte-routing';
-  import { t } from '../i18n.ts';
+  import { Loader } from 'common-svelte';
   import { useListTeas } from '../services/storage';
+  import HomePage from '../pages/HomePage/HomePage.svelte';
 
   $: getTeasQuery = useListTeas();
 </script>
@@ -14,20 +13,5 @@
 {/if}
 
 {#if $getTeasQuery.data}
-  <ul>
-    {#each $getTeasQuery.data as tea}
-      <li>
-        <Link to="/teas/{tea.id}">{tea.name}</Link>
-      </li>
-    {/each}
-  </ul>
+  <HomePage teas={$getTeasQuery.data} />
 {/if}
-
-<Footer
-  leftButton={Link}
-  rightButton={Link}
-  leftButtonProps={{ to: '/' }}
-  rightButtonProps={{ to: '/new' }}
-  leftButtonText={$t('home.actions.startClockButton')}
-  rightButtonText={$t('home.actions.newTeaButton')}
-/>
