@@ -7,13 +7,8 @@
   };
 </script>
 
-<script>
+<script lang="ts">
   import { Story, Template } from '@storybook/addon-svelte-csf';
-
-  let count = 0;
-  function handleClick() {
-    count += 1;
-  }
 </script>
 
 <Template let:args>

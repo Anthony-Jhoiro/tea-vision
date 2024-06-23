@@ -3,6 +3,7 @@ export { default as Footer } from './lib/Footer/Footer.svelte';
 export { default as Loader } from './lib/Loader/Loader.svelte';
 export { default as LoaderWithCircularProgress } from './lib/LoaderWithCircularProgress/LoaderWithCircularProgress.svelte';
 export { default as PWAInstall } from './lib/PWAInstall/PWAInstall.svelte';
+export { default as HorizontalCard } from './lib/HorizontalCard/HorizontalCard.svelte';
 
 // shadcn-svelte
 export * from './lib/components/ui/input';
