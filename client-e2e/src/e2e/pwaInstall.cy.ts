@@ -12,14 +12,13 @@ function getPWAInstallButton() {
   return cy.contains(translate('pwa_install.installButton'));
 }
 
-function getPWADismissPopoverButton() {
+function getPWADismissDrawerButton() {
   return cy.contains(translate('pwa_install.dismissButton'));
 }
 
 describe('PWA Install', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should display PWA install popover', () => {
+  it('should display PWA install drawer', () => {
+    cy.visit('/');
     cy.window().trigger('beforeinstallprompt', {
       prompt() {
         // I am empty but I am happy with it!
@@ -28,11 +27,12 @@ describe('PWA Install', () => {
 
     getPopoverTitle().should('be.visible');
     getPWAInstallButton().should('be.visible');
-    getPWADismissPopoverButton().should('be.visible');
+    getPWADismissDrawerButton().should('be.visible');
     getPopoverDescription().should('be.visible');
   });
 
   it('should install PWA on click', () => {
+    cy.visit('/');
     let hasBeenCalled = false;
     cy.window().trigger('beforeinstallprompt', {
       prompt() {
@@ -54,6 +54,7 @@ describe('PWA Install', () => {
   });
 
   it('should dismiss on click dismiss button', () => {
+    cy.visit('/');
     let hasBeenCalled = false;
     cy.window().trigger('beforeinstallprompt', {
       prompt() {
@@ -63,7 +64,7 @@ describe('PWA Install', () => {
 
     getPopoverTitle().should('be.visible');
 
-    getPWADismissPopoverButton().click();
+    getPWADismissDrawerButton().click();
 
     getPopoverTitle()
       .should('not.exist')
@@ -72,5 +73,48 @@ describe('PWA Install', () => {
           expect(hasBeenCalled, 'Install method should not have been called').to
             .be.false,
       );
+  });
+
+  it('should not display the drawer if already refused', () => {
+    cy.window().then((win) => {
+      win.localStorage.setItem('lastPwaDismiss', new Date().toISOString());
+    });
+
+    cy.visit('/');
+
+    cy.window().trigger('beforeinstallprompt', {
+      prompt() {
+        // I am empty but I am happy with it!
+      },
+    });
+
+    getPopoverTitle().should('not.exist');
+    getPWAInstallButton().should('not.exist');
+    getPWADismissDrawerButton().should('not.exist');
+    getPopoverDescription().should('not.exist');
+  });
+
+  it('should display the drawer if refused more than a week ago', () => {
+    cy.window().then((win) => {
+      win.localStorage.setItem(
+        'lastPwaDismiss',
+        new Date(
+          new Date().getTime() - (1000 * 60 * 60 * 24 * 7 + 1),
+        ).toISOString(),
+      );
+    });
+
+    cy.visit('/');
+
+    cy.window().trigger('beforeinstallprompt', {
+      prompt() {
+        // I am empty but I am happy with it!
+      },
+    });
+
+    getPopoverTitle().should('be.visible');
+    getPWAInstallButton().should('be.visible');
+    getPWADismissDrawerButton().should('be.visible');
+    getPopoverDescription().should('be.visible');
   });
 });
