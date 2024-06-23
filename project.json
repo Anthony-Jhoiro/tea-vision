@@ -1,0 +1,45 @@
+{
+  "name": "tea-vision",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "copy-client-dist": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mkdir -p ./server/src/client-dist && cp -r ./dist/client/* ./server/src/client-dist"
+      },
+      "dependsOn": ["^build"]
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t ghcr.io/anthony-jhoiro/tea-vision:{args.version} dist/server -f server/Dockerfile",
+        "args": ["--tag=dev"]
+      },
+      "dependsOn": ["copy-client-dist"]
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "docker tag ghcr.io/anthony-jhoiro/tea-vision:{args.version} ghcr.io/anthony-jhoiro/tea-vision:latest",
+          "docker push ghcr.io/anthony-jhoiro/tea-vision:{args.version}",
+          {
+            "command": "docker push ghcr.io/anthony-jhoiro/tea-vision:latest",
+            "forwardAllArgs": false
+          }
+        ],
+        "parallel": false
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "docker",
+          "params": "forward"
+        }
+      ]
+    }
+  },
+  "implicitDependencies": ["client", "server"]
+}

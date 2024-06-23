@@ -41,22 +41,9 @@
             }
           }
         }
-      },
-      "dependsOn": ["copy-client-dist"]
+      }
     },
 
-    "copy-client-dist": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "mkdir -p ./server/src/client-dist && cp -r ./dist/client/* ./server/src/client-dist"
-      },
-      "dependsOn": [
-        {
-          "projects": "client",
-          "target": "build"
-        }
-      ]
-    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
@@ -71,35 +58,6 @@
           "buildTarget": "server:build:production"
         }
       }
-    },
-    "docker": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "docker build -t ghcr.io/anthony-jhoiro/tea-vision:{args.version} dist/server -f server/Dockerfile",
-        "args": ["--tag=dev"]
-      },
-      "dependsOn": ["build"]
-    },
-    "release": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "docker tag ghcr.io/anthony-jhoiro/tea-vision:{args.version} ghcr.io/anthony-jhoiro/tea-vision:latest",
-          "docker push ghcr.io/anthony-jhoiro/tea-vision:{args.version}",
-          {
-            "command": "docker push ghcr.io/anthony-jhoiro/tea-vision:latest",
-            "forwardAllArgs": false
-          }
-        ],
-        "parallel": false
-      },
-      "dependsOn": [
-        {
-          "projects": "self",
-          "target": "docker",
-          "params": "forward"
-        }
-      ]
     }
   }
 }
